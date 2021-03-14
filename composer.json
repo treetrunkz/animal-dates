@@ -1,0 +1,15 @@
+{
+  "name": "/home/eleacaco/public_html/animal-dates",
+  "authors": [
+    {
+      "name": "Eleanor Carl",
+      "email": "ecarl@mail.greenriver.edu"
+    }
+  ],
+  "require": {
+    "bcosca/fatfree-core": "dev-master"
+  },
+  "autoload": {
+    "classmap": ["model/", "classes/", "controllers/"]
+  }
+}

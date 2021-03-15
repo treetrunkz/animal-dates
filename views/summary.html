@@ -1,0 +1,99 @@
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+<body>
+
+
+<include href="includes/header.php"></include>
+<h1 id="sum">Profile</h1>
+<h3 id="sum1" style="text-align:  center">Your profile has been created!</h3>
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-lg">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th colspan="3" style="text-align: center">Profile Information</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">&#9824;</th>
+                    <td>First Name</td>
+                    <td>{{ @first }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">&#9830;</th>
+                    <td>Last Name</td>
+                    <td>{{ @last }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">&#127216;</th>
+                    <td>Age</td>
+                    <td>{{ @age }}</td>
+                </tr>
+                <tr>
+                    <th scope="row">&#9893;</th>
+                    <td>Gender</td>
+                    <td>{{ @gender }}</td>
+
+                </tr>
+                <tr>
+                    <th scope="row">&hearts;</th>
+                    <td>Seeking</td>
+                    <td>{{ @seeking }}</td>
+                </tr>
+                </tbody>
+            </table>
+            <table class="table table-hover">
+                <thead>
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center">Demographics</th>
+                    </tr>
+                    <tr>
+                        <th scope="row">&#128174;</th>
+                        <td>State</td>
+                        <td>{{ @state }}</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">&#127800;</th>
+                        <td>Interests</td>
+                        <td>
+                            <check if="{{ isset(@indoor) || isset($outdoor)}}">
+                                <p>Interests: </p>
+                                <repeat group="{{ @indoor }}" value="{{ @indoor }}">
+                                    <p>{{ @indoor }}</p>
+                                </repeat>
+
+                                <repeat group="{{ @outdoor }}" value="{{ @outdoor }}">
+                                    <p>{{ @outdoor }}</p>
+                                </repeat>
+                            </check></td>
+                    </tr>
+                    </tbody>
+                </table>
+                </thead>
+            </table>
+        </div>
+        <div class="col-lg">
+            <img src="https://i.pinimg.com/originals/b2/09/e0/b209e0579044a0a4c441ed493c20dc43.jpg" style="width: 50%; margin-left: auto; margin-right: auto;">
+            <p style="text-align: center"><b>Biography:</b><hr><br> {{ @biography }} </p>
+        </div>
+    </div>
+</div>
+
+
+<include href="includes/footer.php"></include>
+        </body>
+</html>

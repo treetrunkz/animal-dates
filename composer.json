@@ -1,5 +1,5 @@
 {
-  "name": "/home/eleacaco/public_html/animal-dates",
+  "name": "/home/thecohor/public_html/animal-dates/",
   "authors": [
     {
       "name": "Eleanor Carl",
@@ -11,5 +11,6 @@
   },
   "autoload": {
     "classmap": ["model/", "classes/", "controllers/"]
-  }
+  },
+  "description": "Nice program built for dating"
 }

@@ -57,7 +57,7 @@ class Controller
                     $_SESSION['member'] = serialize($member);
                 }
 
-                $this->_f3->reroute('/info2');
+                $this->_f3->reroute('/order2');
             }
         }
         //Sticky
@@ -70,7 +70,7 @@ class Controller
         $this->_f3->set('premium', isset($premium) ? $premium : "");
 
         $view = new Template();
-        echo $view->render('/info1');
+        echo $view->render('/order1');
     }
     function info2()
     {

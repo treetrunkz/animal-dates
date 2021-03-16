@@ -5,12 +5,6 @@ class PremiumUser extends User
     private $_indoor;
     private $_outdoor;
 
-    public function __construct($_first, $_last, $_age, $_gender, $_phone, $_member = true, $_indoor = "", $_outdoor = "")
-    {
-        parent::__construct($_first, $_last, $_age, $_gender, $_phone, $_member);
-        $this->_indoor = $_indoor;
-        $this->_outdoor = $_outdoor;
-    }
 
     public function isMember(): bool
     {
@@ -19,7 +13,7 @@ class PremiumUser extends User
     /**
      * @return mixed|string
      */
-    public function getIndoor()
+    public function getIndoor(): string
     {
         return $this->_indoor;
     }
@@ -35,7 +29,7 @@ class PremiumUser extends User
     /**
      * @return mixed|string
      */
-    public function getOutdoor()
+    public function getOutdoor(): string
     {
         return $this->_outdoor;
     }

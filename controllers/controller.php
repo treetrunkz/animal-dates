@@ -111,7 +111,7 @@ class Controller
         $this->_f3->set('email', isset($email) ? $email : "");
         $this->_f3->set('state', isset($state) ? $state : "");
         $this->_f3->set('biography', isset($biography) ? $biography : "");
-//        $this->_f3->set('seeking', isset($seeking) ? $seeking : "");
+        $this->_f3->set('seeking', isset($seeking) ? $seeking : "");
         $this->_f3->set('seeking', $dataLayer->getSeeking());
         $view = new Template();
         echo $view->render("views/info2.html");
@@ -136,18 +136,18 @@ class Controller
                 }
             }
             if (empty($this->_f3->get('errors'))) {
-            $indoor = implode(', ', $_POST['indoor']);
-            $outdoor = implode(', ', $_POST['outdoor']);
-            if(isset($indoor)){
-                $_SESSION['member']->setIndoor($indoor);
-            } else {
-                $_SESSION['member']->setIndoor("No chosen indoor interests!");
-            }
-            if(issset($outdoor)){
-                $_SESSION['member']->setOutdoor($outdoor);
-            } else {
-                $_SESSION['member']->setOutdoor("No chosen outdoor interests");
-            }
+//            $indoor = implode(', ', $_POST['indoor']);
+//            $outdoor = implode(', ', $_POST['outdoor']);
+//            if(isset($indoor)){
+//                $_SESSION['member']->setIndoor($indoor);
+//            } else {
+//                $_SESSION['member']->setIndoor("No chosen indoor interests!");
+//            }
+//            if(issset($outdoor)){
+//                $_SESSION['member']->setOutdoor($outdoor);
+//            } else {
+//                $_SESSION['member']->setOutdoor("No chosen outdoor interests");
+//            }
             $this->_f3->reroute('/summary');
             }
         }

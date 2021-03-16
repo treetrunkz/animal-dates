@@ -64,15 +64,17 @@
                         <td>State</td>
                         <td>{{ @@SESSION.member->getState() }}</td>
                     </tr>
+                    <check if="{{ @SESSION.member->isMember() }}">
                     <tr>
+
                         <th scope="row">&#127800;</th>
                         <td>Interests</td>
                         <td>
-                                <p>Interests: </p>
-                                    <p>{{ @SESSION.member->getIndoor() }}</p>
-                                    <p>{{ @SESSION.member->getOutdoor() }}</p>
+                            {{ @SESSION.member->getIndoor() }}, {{ @SESSION.member->getOutdoor() }}
                         </td>
+
                     </tr>
+                    </check>
                     </tbody>
                 </table>
                 </thead>

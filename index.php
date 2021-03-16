@@ -41,7 +41,7 @@ $f3->route('GET|POST /summary', function () {
     global $controller;
     $controller->summary();
 });
-$f3->route('GET /ec', function() {
+$f3->route('GET|POST /ec', function() {
     global $controller;
     $controller->extracredit();
 });

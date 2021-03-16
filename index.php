@@ -23,8 +23,6 @@ $f3->route('GET /', function() {
     global $controller;
     $controller->home();
 });
-
-
 $f3->route('GET|POST /order', function () use ($f3) {
     global $controller;
     $controller->info1();
@@ -39,8 +37,12 @@ $f3->route('GET|POST /order3', function () {
     global $controller;
     $controller->info3();
 });
-$f3->route('GET /summary', function () {
+$f3->route('GET|POST /summary', function () {
     global $controller;
     $controller->summary();
+});
+$f3->route('GET /ec', function() {
+    global $controller;
+    $controller->extracredit();
 });
 $f3->run();

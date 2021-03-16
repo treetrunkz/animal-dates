@@ -84,7 +84,7 @@ class Controller
         $this->_f3->set('seeking', $dataLayer->getSeeking());
 
         $member = unserialize($_SESSION['$member']);
-        var_dump($member);
+
         if($_SERVER['REQUEST_METHOD'] == 'POST') {
             $email = $_POST['email'];
             $state = $_POST['state'];
@@ -111,8 +111,8 @@ class Controller
         $this->_f3->set('email', isset($email) ? $email : "");
         $this->_f3->set('state', isset($state) ? $state : "");
         $this->_f3->set('biography', isset($biography) ? $biography : "");
-        $this->_f3->set('seeking', isset($seeking) ? $seeking : "");
-//        $this->_f3->set('seeking', $dataLayer->getSeeking());
+//        $this->_f3->set('seeking', isset($seeking) ? $seeking : "");
+        $this->_f3->set('seeking', $dataLayer->getSeeking());
         $view = new Template();
         echo $view->render("views/info2.html");
     }
@@ -122,8 +122,8 @@ class Controller
         global $dataLayer;
         global $validator;
 
-        $this->_f3->set('indoor', $this->$dataLayer->getIndoor());
-        $this->_f3->set('outdoor', $this->$dataLayer->getOutdoor());
+        $this->_f3->set('indoor', $dataLayer->getIndoor());
+        $this->_f3->set('outdoor', $dataLayer->getOutdoor());
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($indoor)) {
                 if (!$validator->validIndoor($indoor)) {
@@ -159,7 +159,7 @@ class Controller
     {
         global $database;
 
-        $this->$database->saveUsers($_SESSION['member']);
+        $database->saveUsers($_SESSION['member']);
         $view = new Template();
         echo $view->render('views/summary.html');
 
@@ -168,7 +168,7 @@ class Controller
     function extracredit()
     {
         global $database;
-        $this->_f3->set('members', $this->$database->getUsers());
+        $this->_f3->set('members', $database->getUsers());
         $view = new Template();
         echo $view->render('views/ec.html');
 

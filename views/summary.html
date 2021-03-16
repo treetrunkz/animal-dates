@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -10,11 +9,10 @@
           integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
 </head>
 <body>
-
-
 <include href="includes/header.php"></include>
-<h1 id="sum">Profile</h1>
-<h3 id="sum1" style="text-align:  center">Your profile has been created!</h3>
+<h1>Profile</h1>
+<div><a href="ec"><button>Accounts>></button></a></div>
+<h3>Your profile has been created!</h3>
 <hr>
 <div class="container">
     <div class="row">
@@ -29,28 +27,28 @@
                 <tr>
                     <th scope="row">&#9824;</th>
                     <td>First Name</td>
-                    <td>{{ @first }}</td>
+                    <td>{{ @SESSION.member->getFirst()}}</td>
                 </tr>
                 <tr>
                     <th scope="row">&#9830;</th>
                     <td>Last Name</td>
-                    <td>{{ @last }}</td>
+                    <td>{{ @SESSION.member->getLast() }}</td>
                 </tr>
                 <tr>
                     <th scope="row">&#127216;</th>
                     <td>Age</td>
-                    <td>{{ @age }}</td>
+                    <td>{{ @SESSION.member->getAge() }}</td>
                 </tr>
                 <tr>
                     <th scope="row">&#9893;</th>
                     <td>Gender</td>
-                    <td>{{ @gender }}</td>
+                    <td>{{ @SESSION.member->getGender() }}</td>
 
                 </tr>
                 <tr>
                     <th scope="row">&hearts;</th>
                     <td>Seeking</td>
-                    <td>{{ @seeking }}</td>
+                    <td>{{ @SESSION.member->getSeeking() }}</td>
                 </tr>
                 </tbody>
             </table>
@@ -64,22 +62,16 @@
                     <tr>
                         <th scope="row">&#128174;</th>
                         <td>State</td>
-                        <td>{{ @state }}</td>
+                        <td>{{ @@SESSION.member->getState() }}</td>
                     </tr>
                     <tr>
                         <th scope="row">&#127800;</th>
                         <td>Interests</td>
                         <td>
-                            <check if="{{ isset(@indoor) || isset($outdoor)}}">
                                 <p>Interests: </p>
-                                <repeat group="{{ @indoor }}" value="{{ @indoor }}">
-                                    <p>{{ @indoor }}</p>
-                                </repeat>
-
-                                <repeat group="{{ @outdoor }}" value="{{ @outdoor }}">
-                                    <p>{{ @outdoor }}</p>
-                                </repeat>
-                            </check></td>
+                                    <p>{{ @SESSION.member->getIndoor() }}</p>
+                                    <p>{{ @SESSION.member->getOutdoor() }}</p>
+                        </td>
                     </tr>
                     </tbody>
                 </table>
@@ -88,11 +80,11 @@
         </div>
         <div class="col-lg">
             <img src="https://i.pinimg.com/originals/b2/09/e0/b209e0579044a0a4c441ed493c20dc43.jpg" style="width: 50%; margin-left: auto; margin-right: auto;">
-            <p style="text-align: center"><b>Biography:</b><hr><br> {{ @biography }} </p>
+            <p style="text-align: center"><b>Biography:</b><hr><br> {{ @SESSION.member->getBiography() }} </p>
         </div>
     </div>
 </div>
-
+<div><a href="ec"><button>Accounts>></button></a></div>
 
 <include href="includes/footer.php"></include>
         </body>

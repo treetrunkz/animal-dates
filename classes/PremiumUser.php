@@ -13,7 +13,7 @@ class PremiumUser extends User
     /**
      * @return mixed|string
      */
-    public function getIndoor(): string
+    public function getIndoor()
     {
         return $this->_indoor;
     }
@@ -29,7 +29,7 @@ class PremiumUser extends User
     /**
      * @return mixed|string
      */
-    public function getOutdoor(): string
+    public function getOutdoor()
     {
         return $this->_outdoor;
     }

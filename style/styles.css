@@ -1,4 +1,44 @@
 /* Style all font awesome icons */
+#lead {
+    font-family: "Sofia", sans-serif;
+}
+#lead2 {
+    margin: auto;
+}
+#lead3 {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#lead4 {
+    font-family: "Sofia", san-serif, serif;
+}
+#lead5 {
+    font-family: "Sofia", san-serif, serif;
+}
+.w-100 {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+h1#tx {
+    text-align:center;
+    font-family: "Sofia", sans-serif;
+    font-size: 28px;
+}
+span.err {
+    color: #ac2bac;
+}
+hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+button#floatBtn {
+    margin: auto;
+}
+button#floatBtn2 {
+    margin: auto;
+    float: right;
+}
 .fa {
     padding: 20px;
     font-size: 30px;

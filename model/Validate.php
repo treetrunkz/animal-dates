@@ -134,12 +134,9 @@ class Validate
      */
     function validSeeking($seeking)
     {
-        global $f3;
-
         if (empty($seeking)) {
             return true;
         }
-
         return true;
     }
 

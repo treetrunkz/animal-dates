@@ -1,40 +1,26 @@
-
-<!doctype html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-
-    <!-- favicon -->
-    <link rel="icon" type="image/png" href="images/pop4.png">
-</head>
-
-<include href="includes/header.php"></include>
-<!--FORM Email, State, Bio -->
-<form id="two" method="post" action="order2">
-    <div style="padding: 5%;" class="container-content border mx-auto my-auto d-flex">
+<include href="includes/header.html"></include>
+<!--FORM: email, state, bio, seeking -->
+<form id="two" method="post" action="#">
+    <div id="lead3" class="container-content border mx-auto my-auto d-flex">
         <div class="col mx-5 my-3 float-left">
             <div class="navy">
                 <div class="content">
                     <div class="col lg-12">
+<!--contact info -->
                         <h1 class="mb-4">Contact Information</h1>
                     </div>
-
+<!--enter email-->
                     <div class="form-group">
                         <label class="col-lg-8">Email
                             <input type="text" class="col-lg-12" name="email" value="{{ @email }}">
-                        </label>
+                        <br>
                         <check if="{{ @errors['email'] }}">
                             <span class="err">{{ @errors['email'] }}</span>
                         </check>
+                        </label>
                     </div>
                     <br><br>
-
+<!--enter state -->
                     <label>State</label>
                     <select name="state" id="state">
                         <repeat group="{{@states}}" value="{{@stateOption}}">
@@ -44,31 +30,29 @@
                             selected="selected"
                         </check>
                     </select>
-
+<!--enter seeking-->
                     <br><br>
                     <label>Seeking</label><br>
                     <repeat group="{{@seeking}}" value="{{@seekingOption}}">
                         <div class="form-check-inline">
-                            <input type="radio" id="{{@seeking}}" name="seeking" value="{{@seekingOption}}">
-                            <label for="{{@seeking}}">{{@seekingOption}}</label>
+                            <input type="radio" name="seeking" value="{{@seekingOption}}">
+                            <label>{{@seekingOption}}</label>
                         </div>
                     </repeat>
                     </input>
                 </div>
             </div>
         </div>
-
+<!--enter biography-->
         <div class="col mx-5 my-3 float-right">
             <label for="biography">Biography</label>
             <textarea class="form-control" name="biography" id="biography" rows="15"></textarea>
             <br><br>
-            <button style="float: right"class="btn btn-sm btn-outline-secondary" type="submit">Next</button>
+            <button id="floatBtn2" class="btn btn-sm btn-outline-secondary" type="submit">Next</button>
         </div>
     </div>
     </div>
 
 </form>
 <!--END OF FORM-->
-<include href="includes/footer.php"></include>
-</body>
-</html>
+<include href="includes/footer.html"></include>

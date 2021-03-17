@@ -32,7 +32,7 @@ class Controller
             $gender = $_POST['gender'];
             $phone = $_POST['phone'];
             $premium = $_POST['premium'];
-            var_dump($premium);
+
             if (!$validator->validFirst($first)) {
                 $this->_f3->set("errors['first']", "Please enter a first name");
             }
@@ -51,13 +51,10 @@ class Controller
 
             if (empty($this->_f3->get('errors'))) {
                 if ($premium == "on") {
-
                     $_SESSION['member'] = new PremiumUser($first, $last, $age, $gender, $phone);
                 } else {
                     $_SESSION['member'] = new User($first, $last, $age, $gender, $phone);
-
                 }
-
                 $this->_f3->reroute('order2');
             }
         }
@@ -78,7 +75,6 @@ class Controller
         global $dataLayer;
         global $validator;
         global $member;
-        var_dump($_SESSION);
 
         $this->_f3->set('states', $dataLayer->getStates());
         $this->_f3->set('seeking', $dataLayer->getSeeking());
@@ -124,41 +120,44 @@ class Controller
 
         $this->_f3->set('indoor', $dataLayer->getIndoor());
         $this->_f3->set('outdoor', $dataLayer->getOutdoor());
+
         if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if (isset($indoor)) {
-                if (!$validator->validIndoor($indoor)) {
+                if (!$validator->validIndoor($_POST['indoor'])) {
                     $this->_f3->set("errors['indoor']", "Not valid activity");
                 }
+            }
                 if (isset($outdoor)) {
-                    if (!$validator->validOutdoor($outdoor)) {
+                    if (!$validator->validOutdoor($_POST['outdoor'])) {
                         $this->_f3->set("errors['indoor']", "Not valid activity");
                     }
                 }
-            }
+
+
             if (empty($this->_f3->get('errors'))) {
-//            $indoor = implode(', ', $_POST['indoor']);
-//            $outdoor = implode(', ', $_POST['outdoor']);
-//            if(isset($indoor)){
-//                $_SESSION['member']->setIndoor($indoor);
-//            } else {
-//                $_SESSION['member']->setIndoor("No chosen indoor interests!");
-//            }
-//            if(issset($outdoor)){
-//                $_SESSION['member']->setOutdoor($outdoor);
-//            } else {
-//                $_SESSION['member']->setOutdoor("No chosen outdoor interests");
-//            }
+                $userIndoor = implode(', ', $_POST['indoor']);
+                $userOutdoor = implode(', ', $_POST['outdoor']);
+
+
+                if (isset($userIndoor)) {
+                    $_SESSION['member']->setIndoor($userIndoor);
+                }
+                if (isset($userOutdoor)) {
+                    $_SESSION['member']->setOutdoor($userOutdoor);
+                }
+
+
             $this->_f3->reroute('/summary');
             }
         }
-
+        $this->_f3->set('userIndoor', isset($userIndoor) ? $userIndoor : []);
+        $this->_f3->set('userOutdoor', isset($userOutdoor) ? $userOutdoor : []);
         $view = new Template();
         echo $view->render('views/info3.html');
     }
     function summary()
     {
         global $database;
-
         $database->saveUsers($_SESSION['member']);
         $view = new Template();
         echo $view->render('views/summary.html');
@@ -171,6 +170,5 @@ class Controller
         $this->_f3->set('members', $database->getUsers());
         $view = new Template();
         echo $view->render('views/ec.html');
-
     }
 }

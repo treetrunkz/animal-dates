@@ -1,26 +1,16 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-          integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-</head>
-<body>
-<include href="includes/header.php"></include>
-<h1>Profile</h1>
-<div><a href="ec"><button>Accounts>></button></a></div>
-<h3>Your profile has been created!</h3>
+<include href="includes/header.html"></include>
+<div class="col align-self-center">
+
+<h3 id="lead3">...Your profile has been created!</h3>
 <hr>
+</div>
 <div class="container">
     <div class="row">
         <div class="col-lg">
             <table class="table table-hover">
                 <thead>
                 <tr>
-                    <th colspan="3" style="text-align: center">Profile Information</th>
+                    <th colspan="3" id="lead">Profile Information</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -57,7 +47,7 @@
                 <table class="table table-hover">
                     <thead>
                     <tr>
-                        <th colspan="3" style="text-align: center">Demographics</th>
+                        <th colspan="3" id="lead4" >Demographics</th>
                     </tr>
                     <tr>
                         <th scope="row">&#128174;</th>
@@ -81,13 +71,12 @@
             </table>
         </div>
         <div class="col-lg">
-            <img src="https://i.pinimg.com/originals/b2/09/e0/b209e0579044a0a4c441ed493c20dc43.jpg" style="width: 50%; margin-left: auto; margin-right: auto;">
-            <p style="text-align: center"><b>Biography:</b><hr><br> {{ @SESSION.member->getBiography() }} </p>
+            <img id="lead2" src="https://i.pinimg.com/originals/b2/09/e0/b209e0579044a0a4c441ed493c20dc43.jpg" style="width: 50%; margin-left: auto; margin-right: auto;">
+            <p id="lead5"><b>Biography:</b><hr><br> {{ @SESSION.member->getBiography() }} </p>
         </div>
     </div>
 </div>
-<div><a href="ec"><button>Accounts>></button></a></div>
+<br>
+<a href="ec"><button id="floatBtn2" class="btn btn-sm btn-outline-secondary" type="submit">Admin</button></a>
 
-<include href="includes/footer.php"></include>
-        </body>
-</html>
+<include href="includes/footer.html"></include>

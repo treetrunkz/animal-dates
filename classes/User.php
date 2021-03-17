@@ -12,8 +12,6 @@ class User
     private $_state;
     private $_seeking;
     private $_biography;
-    private $_indoor = "";
-    private $_outdoor = "";
 
     public function __construct($_first, $_last, $_age, $_gender, $_phone, $_member = false)
     {
@@ -188,19 +186,5 @@ class User
     {
         $this->_biography = $biography;
     }
-    /**
-     * @return mixed|string
-     */
-    public function getOutdoor()
-    {
-        return "";
-    }
 
-    /**
-     * @param mixed|string $outdoor
-     */
-    public function setOutdoor($outdoor)
-    {
-        return "";
-    }
 }

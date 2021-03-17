@@ -38,9 +38,10 @@ class Database
         $image = "thisimage.png";
         if ($member->isMember()){
             $premium = true;
-            $interests = $_SESSION['member']->getIndoor();
-            $interests .=', ' . $_SESSION['member']->getOutdoor();
+            $interests = $member->getIndoor();
+            $interests .=', ' . $member->getOutdoor();
         }
+
         $statement->bindParam(':first', $member->getFirst(), PDO::PARAM_STR );
         $statement->bindParam(':last', $member->getLast(), PDO::PARAM_STR );
         $statement->bindParam(':age', $member->getAge(), PDO::PARAM_STR );
